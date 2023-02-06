@@ -1,0 +1,22 @@
+{
+  "name": "blog",
+  "private": true,
+  "version": "0.1.0",
+  "description": "my blog",
+  "scripts": {
+    "develop:strapi": "yarn --cwd strapi develop",
+    "develop:gatsby": "yarn --cwd gatsby develop",
+    "develop": "cross-env NODE_ENV=development concurrently \"yarn develop:strapi\" \"yarn develop:gatsby\""
+  },
+  "author": {
+    "name": "cschen"
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "cross-env": "^7.0.3"
+  }
+}
