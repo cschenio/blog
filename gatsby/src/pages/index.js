@@ -19,19 +19,17 @@ const BlogIndex = ({ data, location }) => {
   const postNewest = posts[0];
   // Random find another one 
   const randonIdx = Math.round(Math.random() * (posts.length-1))
-  console.log(randonIdx)
   const postRandom = posts[randonIdx];
 
   //test
   const markdowns = data.allMarkdownRemark;
-  console.log(markdowns);
 
   return (
     <Layout
       location={location}
       title={siteTitle}>
 
-      <h3>Newest Pose</h3>
+      <h3>Newest posts</h3>
       <IntroItem post={postNewest} kind={"Big"}/>
       <h3>Focus</h3>
       <IntroItem post={postRandom} kind={"Small"}/>

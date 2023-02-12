@@ -1,11 +1,9 @@
 import * as React from "react";
+
 import * as styles from "./introItem.module.css";
-import { useStaticQuery, graphql } from "gatsby";
 
 
 const IntroItem = ({ post, kind }) => {
-    console.log(post);
-
     return <div>
         "title:"{post.title}
         <br/>
