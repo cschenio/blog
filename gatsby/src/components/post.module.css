@@ -1,0 +1,17 @@
+.post {
+  background-color: var(--color-white);
+}
+
+.subtitle {
+  color: var(--color-gray);
+  font-size: var(--fontSize-3);
+  font-weight: var(--fontWeight-normal);
+}
+
+.dateBlock {
+  margin-top: var(--spacing-2);
+  font-size: var(--fontSize-1);
+  font-weight: var(--fontWeight-medium);
+  font-style: italic;
+  line-height: var(--lineHeight-relaxed);
+}
