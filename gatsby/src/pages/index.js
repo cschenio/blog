@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
 
-import Layout from "../components/layout/layout";
+import Hero from "../components/hero";
 import Seo from "../components/seo";
 import IntroItem from "../components/introItem";
 
@@ -21,14 +21,9 @@ const BlogIndex = ({ data, location }) => {
   const randonIdx = Math.round(Math.random() * (posts.length-1))
   const postRandom = posts[randonIdx];
 
-  //test
-  const markdowns = data.allMarkdownRemark;
-
   return (
-    <Layout
-      location={location}
-      title={siteTitle}>
-
+    <>
+      <Hero title={siteTitle} linkTo="/" />
       <h3>Newest posts</h3>
       <IntroItem post={postNewest} kind={"Big"}/>
       <h3>Focus</h3>
@@ -41,8 +36,7 @@ const BlogIndex = ({ data, location }) => {
         </li>
       ))}
       </ul>
-
-    </Layout>
+    </>
   );
 };
 

@@ -1,3 +1,23 @@
+:root {
+  --navbar-height: 3rem;
+}
+
 .navbar {
-  border-bottom: 3px solid var(--color-gray);
+  padding-left: var(--spacing-3);
+
+  width: var(--maxWidth-full);
+  height: var(--navbar-height);
+
+  background-color: var(--color-gray);
+
+}
+
+.navbar h1 {
+  margin: var(--spacing-0);
+  line-height: var(--navbar-height);
+  font-size: var(--fontSize-2);
+}
+
+.navbar a {
+  color: var(--color-primary);
 }

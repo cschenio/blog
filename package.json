@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "description": "my blog",
   "scripts": {
+    "all": "concurrently \"yarn install\" \"yarn --cwd gatsby install\" \"yarn --cwd strapi install\"",
     "develop:strapi": "yarn --cwd strapi develop",
     "develop:gatsby": "yarn --cwd gatsby develop",
     "develop": "cross-env NODE_ENV=development concurrently \"yarn develop:strapi\" \"yarn develop:gatsby\""
@@ -20,3 +21,4 @@
     "cross-env": "^7.0.3"
   }
 }
+
