@@ -8,7 +8,7 @@ const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
 // Define the template for blog post
-const blogPost = path.resolve(`./src/templates/blogPost.js`);
+// const blogPost = path.resolve(`./src/templates/blogPost.js`);
 
 
 /**
@@ -35,6 +35,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const posts = result.data.allStrapiPost.nodes;
 
+  /* // Use /src/pages/posts/{StrapiPost.slug}.js instead.
   if (posts.length > 0) {
     posts.forEach((post) => {
       createPage({
@@ -46,6 +47,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       });
     });
   }
+  */
 }
 /*
 exports.createPages = async ({ graphql, actions, reporter }) => {

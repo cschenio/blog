@@ -17,7 +17,7 @@ const BlogIndex = ({ data, location }) => {
   posts.sort(compareDate);
   // Find the newest one
   const postNewest = posts[0];
-  // Random find another one 
+  // Random find another one
   const randonIdx = Math.round(Math.random() * (posts.length-1))
   const postRandom = posts[randonIdx];
 
@@ -37,7 +37,7 @@ const BlogIndex = ({ data, location }) => {
       <ul>
       { posts.map((p) => (
         <li>
-          <Link to={p.slug}>{ p.title }</Link>
+          <Link to={"/posts/" + p.slug}>{ p.title }</Link>
         </li>
       ))}
       </ul>
@@ -75,7 +75,7 @@ export const pageQuery = graphql`
               html
             }
           }
-          
+
         }
       }
     }
