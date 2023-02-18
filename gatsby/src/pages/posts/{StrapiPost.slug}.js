@@ -8,8 +8,8 @@ function PostPage({ data, location }) {
   const { strapiPost, site } = data;
   const siteTitle = site.siteMetadata?.title || `Title`;
   return (
-    <Layout location={location} title={siteTitle}>
-      <Post post={strapiPost}/>
+    <Layout title={siteTitle}>
+      <Post post={strapiPost} />
     </Layout>
   );
 };
@@ -29,13 +29,26 @@ export const pageQuery = graphql`
       title
       slug
       date(formatString: "MMMM DD, YYYY")
-      body{
-        data{
+      body {
+        data {
           id
-          childMarkdownRemark{
+          childMarkdownRemark {
             id
             html
           }
+        }
+      }
+      author {
+        fullName
+        avatar {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(width: 100)
+            }
+          }
+        }
+        user {
+          username
         }
       }
     }

@@ -5,12 +5,12 @@ import PostInfo from "./post/info";
 import * as styles from "./post.module.css";
 
 const Post = ({ post }) => {
-  const author = post.author || "Author Chen";
+  const author = post.author;
 
   return (
     <article className={styles.post}>
       <h2>{post.title}</h2>
-      <PostInfo author={author} date={post.date} avatar={true} />
+      <PostInfo author={author} date={post.date} />
       <div className={styles.body} dangerouslySetInnerHTML={{ __html: post.body.data.childMarkdownRemark.html }}/>
     </article>
   );

@@ -66,6 +66,12 @@
           "localized": true
         }
       }
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::editor.editor",
+      "inversedBy": "posts"
     }
   }
 }
