@@ -131,21 +131,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       summary: String
     }
 
-    type MarkdownRemark implements Node {
-      frontmatter: Frontmatter
-      fields: Fields
-    }
-
-    type Frontmatter {
-      title: String
-      description: String
-      date: Date @dateformat
-    }
-
-    type Fields {
-      slug: String
-    }
-
     type StrapiPost implements Node {
       title: String
       slug: String
