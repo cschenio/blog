@@ -7,3 +7,15 @@
 .footer {
   color: var(--color-gray);
 }
+
+.theme-white {
+  background-color: var(--color-white);
+}
+
+.theme-primary {
+  background-color: var(--color-primary);
+}
+
+.theme-gray {
+  background-color: var(--color-primary);
+}

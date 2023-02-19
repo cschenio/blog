@@ -16,6 +16,8 @@
   margin: var(--spacing-0);
   line-height: var(--navbar-height);
   font-size: var(--fontSize-2);
+
+  text-shadow: 2px 1px 0 var(--color-black), 3px 1.5px 1px var(--color-black);
 }
 
 .navbar a {

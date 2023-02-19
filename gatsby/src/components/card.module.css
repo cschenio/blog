@@ -1,0 +1,12 @@
+.card {
+  margin-top: var(--spacing-8);
+
+  width: 100%;
+  background-color: var(--color-primary);
+  padding: var(--spacing-4);
+
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 1rem;
+  align-items: start;
+}
