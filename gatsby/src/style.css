@@ -134,7 +134,7 @@
 html {
   line-height: var(--lineHeight-normal);
   font-size: var(--fontSize-root);
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 

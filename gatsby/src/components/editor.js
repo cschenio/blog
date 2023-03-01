@@ -20,10 +20,12 @@ const Editor = ({ editor }) => {
     <>
       <Card>
         <div>
-          <h1 className={styles.editorName}>{ fullName }</h1>
-          <Avatar author={editor} />
+          <Avatar author={editor} swoosh={true} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: bio.data.childMarkdownRemark.html }}/>
+        <div>
+          <h1 className={styles.editorName}>{ fullName }</h1>
+          <div dangerouslySetInnerHTML={{ __html: bio.data.childMarkdownRemark.html }}/>
+        </div>
       </Card>
       <h2>Posts</h2>
       <ul>

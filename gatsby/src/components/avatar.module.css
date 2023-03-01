@@ -11,10 +11,10 @@
   2px 1px 14px -1px rgba(250, 218, 173, 0.9)
 }
 
-.avatarRounded {
+.avatarSwoosh {
   justify-self: center;
 
-  border-radius: 50%;
+  border-radius: 0 0 50% 0;
   max-width: 100%;
   height: auto;
 

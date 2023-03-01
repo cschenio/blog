@@ -39,7 +39,7 @@ export const pageQuery = graphql`
       avatar {
         localFile {
           childImageSharp {
-            gatsbyImageData(width: 200)
+            gatsbyImageData(width: 250)
           }
         }
       }

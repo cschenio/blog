@@ -4,8 +4,8 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import * as styles from "./avatar.module.css";
 
-const Avatar = ({ author, rounded }) => {
-  const imageClassName = (rounded) ? styles.avatarRounded : styles.avatar;
+const Avatar = ({ author, swoosh }) => {
+  const imageClassName = (swoosh) ? styles.avatarSwoosh : styles.avatar;
 
   const image = getImage(author.avatar.localFile);
   return (

@@ -4,10 +4,12 @@ import { Link, graphql } from "gatsby";
 import Hero from "../components/hero";
 import Seo from "../components/seo";
 import IntroItem from "../components/introItem";
+import Avatar from "../components/avatar";
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const posts = data.allStrapiPost.nodes;
+  const editors = data.allStrapiEditor.nodes;
 
   // TODO: use database to find the latest post
   // TODO: use database to random get limit posts
@@ -36,6 +38,14 @@ const BlogIndex = ({ data, location }) => {
         </li>
       ))}
       </ul>
+      <h3>Editors</h3>
+      { editors.map((e) => (
+        <li>
+          <Avatar author={e}/>
+          <Link to={"/editors/" + e.user.username}>{ e.fullName }</Link>
+        </li>
+      ))
+      }
     </>
   );
 };
@@ -70,6 +80,21 @@ export const pageQuery = graphql`
             }
           }
 
+        }
+      }
+    }
+    allStrapiEditor {
+      nodes {
+        fullName
+        avatar {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(width: 100)
+            }
+          }
+        }
+        user {
+          username
         }
       }
     }
