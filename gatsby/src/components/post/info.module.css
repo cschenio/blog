@@ -1,0 +1,30 @@
+.info {
+  height: 4rem;
+
+  margin-left: calc(-1 * var(--spacing-6));
+  margin-top: var(--spacing-4);
+  padding-left: var(--spacing-6);
+  border-left: var(--spacing-1) solid var(--color-primary);
+
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  align-items: center;
+}
+
+.author {
+  padding-left: var(--spacing-4);
+}
+
+.authorName {
+  font-size: var(--fontSize-1);
+  font-weight: var(--fontWeight-normal);
+  line-height: var(--lineHeight-relaxed);
+  color: var(--color-black);
+  text-decoration: none;
+}
+
+.date {
+  font-size: var(--fontSize-0);
+  font-weight: var(--fontWeight-thin);
+  color: var(--color-gray);
+}

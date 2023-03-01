@@ -1,13 +1,15 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
 
-import Layout from "../components/layout/layout";
+import Hero from "../components/hero";
 import Seo from "../components/seo";
 import IntroItem from "../components/introItem";
+import Avatar from "../components/avatar";
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const posts = data.allStrapiPost.nodes;
+  const editors = data.allStrapiEditor.nodes;
 
   // TODO: use database to find the latest post
   // TODO: use database to random get limit posts
@@ -21,14 +23,9 @@ const BlogIndex = ({ data, location }) => {
   const randonIdx = Math.round(Math.random() * (posts.length-1))
   const postRandom = posts[randonIdx];
 
-  //test
-  const markdowns = data.allMarkdownRemark;
-
   return (
-    <Layout
-      location={location}
-      title={siteTitle}>
-
+    <>
+      <Hero title={siteTitle} linkTo="/" />
       <h3>Newest posts</h3>
       <IntroItem post={postNewest} kind={"Big"}/>
       <h3>Focus</h3>
@@ -41,8 +38,15 @@ const BlogIndex = ({ data, location }) => {
         </li>
       ))}
       </ul>
-
-    </Layout>
+      <h3>Editors</h3>
+      { editors.map((e) => (
+        <li>
+          <Avatar author={e}/>
+          <Link to={"/editors/" + e.user.username}>{ e.fullName }</Link>
+        </li>
+      ))
+      }
+    </>
   );
 };
 
@@ -76,6 +80,21 @@ export const pageQuery = graphql`
             }
           }
 
+        }
+      }
+    }
+    allStrapiEditor {
+      nodes {
+        fullName
+        avatar {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(width: 100)
+            }
+          }
+        }
+        user {
+          username
         }
       }
     }

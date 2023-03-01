@@ -1,0 +1,7 @@
+.editorName {
+  margin-top: 0;
+  margin-bottom: var(--spacing-4);
+
+  color: var(--color-gray);
+  font-size: var(--fontSize-3);
+}

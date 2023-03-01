@@ -10,8 +10,21 @@
 
 .dateBlock {
   margin-top: var(--spacing-2);
-  font-size: var(--fontSize-1);
+  font-size: var(--fontSize-0);
   font-weight: var(--fontWeight-medium);
   font-style: italic;
   line-height: var(--lineHeight-relaxed);
+}
+
+.body h1 {
+  font-size: var(--fontSize-4);
+  color: var(--color-gray);
+}
+
+.body h2 {
+  font-size: var(--fontSize-3);
+}
+
+.body h3 {
+  font-size: var(--fontSize-2);
 }
