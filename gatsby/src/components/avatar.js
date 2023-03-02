@@ -9,7 +9,7 @@ const Avatar = ({ author, swoosh }) => {
 
   const image = getImage(author.avatar.localFile);
   return (
-    <Link to={`/editors/${author.user.username}`}>
+    <Link to={`/editors/${author.slug}`}>
       <GatsbyImage
         className={imageClassName}
         image={image}

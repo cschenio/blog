@@ -8,7 +8,7 @@ import * as styles from "./info.module.css";
 const PostInfo = ({ date, author }) => {
   const authorDateBlock = (
     <div className={styles.author}>
-      <Link className={styles.authorName} to={`/editors/${author.user.username}`}>
+      <Link className={styles.authorName} to={`/editors/${author.slug}`}>
         <div>{ author.fullName }</div>
       </Link>
       <div className={styles.date}>{ date }</div>

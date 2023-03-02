@@ -42,7 +42,7 @@ const BlogIndex = ({ data, location }) => {
       { editors.map((e) => (
         <li>
           <Avatar author={e}/>
-          <Link to={"/editors/" + e.user.username}>{ e.fullName }</Link>
+          <Link to={"/editors/" + e.slug}>{ e.fullName }</Link>
         </li>
       ))
       }
@@ -86,15 +86,13 @@ export const pageQuery = graphql`
     allStrapiEditor {
       nodes {
         fullName
+        slug
         avatar {
           localFile {
             childImageSharp {
               gatsbyImageData(width: 100)
             }
           }
-        }
-        user {
-          username
         }
       }
     }
