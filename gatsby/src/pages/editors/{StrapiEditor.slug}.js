@@ -27,6 +27,7 @@ export const pageQuery = graphql`
 
     strapiEditor(id: { eq: $id }) {
       fullName
+      slug
       bio {
         data {
           id
@@ -42,9 +43,6 @@ export const pageQuery = graphql`
             gatsbyImageData(width: 250)
           }
         }
-      }
-      user {
-        username
       }
       posts {
         title

@@ -40,15 +40,13 @@ export const pageQuery = graphql`
       }
       author {
         fullName
+        slug
         avatar {
           localFile {
             childImageSharp {
               gatsbyImageData(width: 100)
             }
           }
-        }
-        user {
-          username
         }
       }
     }
