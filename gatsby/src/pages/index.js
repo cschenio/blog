@@ -1,10 +1,14 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
 
-import Hero from "../components/hero";
+import Hero from "../components/homepage/hero";
 import Seo from "../components/seo";
 import IntroItem from "../components/introItem";
 import Avatar from "../components/avatar";
+import Spotlight from "../components/homepage/spotlight";
+import Recommend from "../components/homepage/recommend";
+import EditorList from "../components/homepage/editorList";
+import Navigation from "../components/homepage/navigation";
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
@@ -26,26 +30,10 @@ const BlogIndex = ({ data, location }) => {
   return (
     <>
       <Hero title={siteTitle} linkTo="/" />
-      <h3>Newest posts</h3>
-      <IntroItem post={postNewest} kind={"Big"}/>
-      <h3>Focus</h3>
-      <IntroItem post={postRandom} kind={"Small"}/>
-      <h3>Post List</h3>
-      <ul>
-      { posts.map((p) => (
-        <li>
-          <Link to={"/posts/" + p.slug}>{ p.title }</Link>
-        </li>
-      ))}
-      </ul>
-      <h3>Editors</h3>
-      { editors.map((e) => (
-        <li>
-          <Avatar author={e}/>
-          <Link to={"/editors/" + e.slug}>{ e.fullName }</Link>
-        </li>
-      ))
-      }
+      <Navigation />
+      <Spotlight post1={postNewest} post2={postNewest} />
+      <Recommend posts={posts} />
+      <EditorList editors={editors} />
     </>
   );
 };
@@ -70,6 +58,9 @@ export const pageQuery = graphql`
       nodes {
         title
         slug
+        author{
+          fullName
+        }
         date(formatString: "MMMM DD, YYYY")
         body{
           data{
