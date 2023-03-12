@@ -9,13 +9,6 @@ import * as styles from "./editor.module.css";
 const Editor = ({ editor }) => {
   const { bio, fullName, posts } = editor;
 
-  // TODO: use database to find the latest post
-  // TODO: use database to random get limit posts
-  function compareDate(a, b){
-    return a.date > b.date;
-  }
-  posts.sort(compareDate);
-
   return (
     <>
       <Card>

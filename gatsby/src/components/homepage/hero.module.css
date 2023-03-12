@@ -1,0 +1,17 @@
+.hero {
+  width: var(--maxWidth-full);
+  padding: var(--spacing-5);
+  margin-top: var(--spacing-0);
+  border-bottom: solid 0.2rem var(--color-gray);
+  background-color: var(--color-gray);
+  
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.hero h1{
+  margin: var(--spacing-0);
+  color: var(--color-primary);
+  font-size: var(--fontSize-7);
+}

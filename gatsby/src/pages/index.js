@@ -1,22 +1,22 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
 
-import Hero from "../components/hero";
+import Hero from "../components/homepage/hero";
 import Seo from "../components/seo";
 import IntroItem from "../components/introItem";
 import Avatar from "../components/avatar";
+import Spotlight from "../components/homepage/spotlight";
+import Recommend from "../components/homepage/recommend";
+import EditorList from "../components/homepage/editorList";
+import Navigation from "../components/homepage/navigation";
+import HomepageLayout from "../components/layout/homepageLayout";
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const posts = data.allStrapiPost.nodes;
   const editors = data.allStrapiEditor.nodes;
 
-  // TODO: use database to find the latest post
   // TODO: use database to random get limit posts
-  function compareDate(a, b){
-    return a.date > b.date;
-  }
-  posts.sort(compareDate);
   // Find the newest one
   const postNewest = posts[0];
   // Random find another one
@@ -24,29 +24,13 @@ const BlogIndex = ({ data, location }) => {
   const postRandom = posts[randonIdx];
 
   return (
-    <>
+    <HomepageLayout>
       <Hero title={siteTitle} linkTo="/" />
-      <h3>Newest posts</h3>
-      <IntroItem post={postNewest} kind={"Big"}/>
-      <h3>Focus</h3>
-      <IntroItem post={postRandom} kind={"Small"}/>
-      <h3>Post List</h3>
-      <ul>
-      { posts.map((p) => (
-        <li>
-          <Link to={"/posts/" + p.slug}>{ p.title }</Link>
-        </li>
-      ))}
-      </ul>
-      <h3>Editors</h3>
-      { editors.map((e) => (
-        <li>
-          <Avatar author={e}/>
-          <Link to={"/editors/" + e.slug}>{ e.fullName }</Link>
-        </li>
-      ))
-      }
-    </>
+      <Navigation />
+      <Spotlight post1={postNewest} post2={postRandom} />
+      <Recommend posts={posts} />
+      <EditorList editors={editors} />
+    </HomepageLayout>
   );
 };
 
@@ -66,14 +50,19 @@ export const pageQuery = graphql`
         title
       }
     }
-    allStrapiPost {
+    allStrapiPost(limit:12, sort:{fields:[date],order:DESC}) {
       nodes {
         title
         slug
-        date(formatString: "MMMM DD, YYYY")
+        author{
+          fullName
+          slug
+        }
+        date(formatString: "YYYY-MM-DD")
         body{
           data{
             id
+            body
             childMarkdownRemark{
               id
               html
@@ -90,7 +79,7 @@ export const pageQuery = graphql`
         avatar {
           localFile {
             childImageSharp {
-              gatsbyImageData(width: 100)
+              gatsbyImageData(width: 250)
             }
           }
         }
