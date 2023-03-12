@@ -3,6 +3,8 @@ import { graphql } from "gatsby";
 
 import Layout from "../../components/layout/layout";
 import Post from "../../components/post";
+import Seo from "../../components/seo";
+
 
 function PostPage({ data, location }) {
   const { strapiPost, site } = data;
@@ -15,6 +17,13 @@ function PostPage({ data, location }) {
 };
 
 export default PostPage;
+
+/**
+ * Head export to define metadata for the page
+ *
+ * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
+ */
+export const Head = ({ data }) => <Seo title={data.strapiPost?.title} />;
 
 export const pageQuery = graphql`
   query($slug: String!) {

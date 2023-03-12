@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 
 import Layout from "../../components/layout/layout";
 import Editor from "../../components/editor";
+import Seo from "../../components/seo";
 
 function EditorPage({ data }) {
   const { strapiEditor, site } = data;
@@ -16,6 +17,8 @@ function EditorPage({ data }) {
 };
 
 export default EditorPage;
+
+export const Head = ({ data }) => <Seo title={data.strapiEditor?.fullName} />;
 
 export const pageQuery = graphql`
   query($id: String!) {

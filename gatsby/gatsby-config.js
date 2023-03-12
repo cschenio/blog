@@ -13,12 +13,8 @@ require("dotenv").config({
  */
 module.exports = {
   siteMetadata: {
-    title: `TECH BLOG`,
-    author: {
-      name: `My Name`,
-      summary: `Happy Authors`,
-    },
-    description: `This is a tech blog.`,
+    title: `Up-to-date`,
+    description: `Practical solutions to common tech issues from our diverse team of experienced editors. A comprehensive view of the tech landscape through unique perspectives.`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -54,15 +50,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Tek Blog`,
-        short_name: `Tek`,
+        name: `Up-to-date technology weblog`,
+        short_name: `Up-to-date`,
         start_url: `/`,
         background_color: `#FAFAFA`,
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
     {
