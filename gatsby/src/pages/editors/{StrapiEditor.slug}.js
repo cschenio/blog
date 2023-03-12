@@ -44,7 +44,7 @@ export const pageQuery = graphql`
           }
         }
       }
-      posts {
+      posts{
         title
         slug
         date

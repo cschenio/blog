@@ -110,10 +110,12 @@
   --fontSize-6: 4.209rem;
   --fontSize-7: 5.61rem;
 
+  --color-test: #f0f0f0;
   --color-primary: #FADAAD;
   --color-secondary: #224F4E;
   --color-black: #141414;
   --color-gray: #333030;
+  --color-light-gray: #AAAAAA;
   --color-white: #FAFAFA;
   --color-text: var(--color-black);
   --color-text-light: var(--color-gray);

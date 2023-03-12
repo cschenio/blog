@@ -9,18 +9,14 @@ import Spotlight from "../components/homepage/spotlight";
 import Recommend from "../components/homepage/recommend";
 import EditorList from "../components/homepage/editorList";
 import Navigation from "../components/homepage/navigation";
+import HomepageLayout from "../components/layout/homepageLayout";
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const posts = data.allStrapiPost.nodes;
   const editors = data.allStrapiEditor.nodes;
 
-  // TODO: use database to find the latest post
   // TODO: use database to random get limit posts
-  function compareDate(a, b){
-    return a.date > b.date;
-  }
-  posts.sort(compareDate);
   // Find the newest one
   const postNewest = posts[0];
   // Random find another one
@@ -28,13 +24,13 @@ const BlogIndex = ({ data, location }) => {
   const postRandom = posts[randonIdx];
 
   return (
-    <>
+    <HomepageLayout>
       <Hero title={siteTitle} linkTo="/" />
       <Navigation />
-      <Spotlight post1={postNewest} post2={postNewest} />
+      <Spotlight post1={postNewest} post2={postRandom} />
       <Recommend posts={posts} />
       <EditorList editors={editors} />
-    </>
+    </HomepageLayout>
   );
 };
 
@@ -54,17 +50,19 @@ export const pageQuery = graphql`
         title
       }
     }
-    allStrapiPost {
+    allStrapiPost(limit:12, sort:{fields:[date],order:DESC}) {
       nodes {
         title
         slug
         author{
           fullName
+          slug
         }
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY-MM-DD")
         body{
           data{
             id
+            body
             childMarkdownRemark{
               id
               html
@@ -81,7 +79,7 @@ export const pageQuery = graphql`
         avatar {
           localFile {
             childImageSharp {
-              gatsbyImageData(width: 100)
+              gatsbyImageData(width: 250)
             }
           }
         }

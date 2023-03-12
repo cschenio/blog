@@ -1,0 +1,19 @@
+.editorList {
+  width: var(--maxWidth-full);
+  padding-top: var(--spacing-4);
+  padding-bottom: var(--spacing-4);
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.editor{
+  display: grid;
+  justify-items: center;
+  margin-bottom: 1.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  filter: grayscale(90%);
+}

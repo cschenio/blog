@@ -5,13 +5,11 @@ import IntroItem from "../introItem";
 
 
 const Recommend = ({posts}) => {
-    return <div>
-       <h3>Recommended posts</h3>
+    return <div className={styles.recommend}>
        { posts.map((p) => (
-        <>
-            <IntroItem key={p.slug} post={p} kind={"Medium"}/>
-            <br />
-        </>
+            <div className={styles.recommendItem}>
+                <IntroItem key={p.slug} post={p} kind={"Small"}/>
+            </div>
         ))}
     </div>;
 };

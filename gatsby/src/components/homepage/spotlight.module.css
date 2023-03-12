@@ -1,0 +1,38 @@
+.spotlight {
+  width: var(--maxWidth-full);
+  padding-top: var(--spacing-4);
+  padding-bottom: var(--spacing-4);
+  border-bottom: solid 0.2rem var(--color-gray);
+
+}
+
+/* for screens with width of 600px or more */
+@media only screen and (min-width: 600px) {
+  .spotlight {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+  }
+  .spotlightItem:first-of-type{
+    border-right: solid 2px var(--color-light-gray);
+    padding-right: var(--spacing-3);
+  }
+  .spotlightItem:last-of-type{
+    padding-left: var(--spacing-3);
+  }
+}
+
+/* for screens with width less than 600px */
+@media only screen and (max-width: 599px) {
+  .spotlight {
+    display: block;
+    row-gap: 1rem;
+  }
+  .spotlightItem:first-of-type{
+    border-bottom: solid 2px var(--color-light-gray);
+    padding-bottom: var(--spacing-3);
+  }
+  .spotlightItem:last-of-type{
+    padding-top: var(--spacing-3);
+  }
+}

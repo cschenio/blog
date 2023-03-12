@@ -1,20 +1,19 @@
 import * as React from "react";
 import { Link } from "gatsby";
 
-import * as styles from "./EditorList.module.css";
+import * as styles from "./editorList.module.css";
 import Avatar from "../avatar";
 
 
 const EditorList = ({ editors }) => {
-    return <div>
-        <h3>Editors</h3>
+    return <div className={styles.editorList}>
         { editors.map((e) => (
-        <li>
+        <div className={styles.editor}>
           <Avatar author={e}/>
           <Link to={"/editors/" + e.slug}>{ e.fullName }</Link>
-        </li>
+        </div>
       ))
-      }
+      } 
     </div>;
 };
 
